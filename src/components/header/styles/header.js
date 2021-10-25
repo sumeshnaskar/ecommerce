@@ -86,13 +86,13 @@ export const Item = styled.li`
     font-size: 1rem;
     margin: 1em 0;
     cursor: pointer;
-    
+    color: hsl(219, 9%, 45%);
     &:first-of-type{
         margin-top: 2.5em;
     }
 
     &:hover{
-        color: hsl(26, 100%, 55%);    
+        color: hsl(220, 13%, 13%);    
         
     }
 
@@ -110,7 +110,7 @@ export const Item = styled.li`
         }
 
         &:hover{
-            color: hsl(0, 0%, 0%);    
+            color: hsl(220, 13%, 13%);    
             border-bottom: 3px solid hsl(26, 100%, 55%);
         }
     }
