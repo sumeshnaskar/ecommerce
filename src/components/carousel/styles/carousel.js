@@ -1,6 +1,10 @@
 import styled from "styled-components"
 
-export const Container = styled.section``
+export const Container = styled.section`
+    @media(min-width: 700px){
+        display: none;
+    }
+`
 
 export const ImageWrapper = styled.div`
     background: url(${({src})=>src});
