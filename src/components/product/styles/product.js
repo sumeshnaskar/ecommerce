@@ -33,7 +33,12 @@ export const LargeImage = styled.img`
         cursor: pointer;
     }
 `
-export const SmallImage = styled.img`
+
+export const ImageWrapper = styled.div`
+
+`
+
+export const SmallImage = styled.div`
 
     display: none;
 
@@ -46,6 +51,12 @@ export const SmallImage = styled.img`
         border-radius: 10px;
         margin-top: 1em;
         cursor: pointer;
+        border: ${({selected}) => selected && '2px solid hsl(26, 100%, 55%)'};
+        background-blend-mode: screen;
+        background-image: url(${({src})=>src});
+        background-color: ${({selected}) => selected && 'hsl(0, 0%, 70%)'};
+        background-size: cover;
+        
     }
 `
 

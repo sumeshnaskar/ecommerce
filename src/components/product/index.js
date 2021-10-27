@@ -9,7 +9,8 @@ import {
     CartButton,
     LargeImage,
     SmallImage,
-    Inner 
+    Inner,
+    ImageWrapper 
 } from './styles/product'
 
 export default function Product({ children, ...restProps }){
@@ -34,6 +35,10 @@ Product.SmallText = function ProductSmallText({ children, ...restProps }){
 
 Product.Group = function ProductGroup({ children, ...restProps }){
     return <Group {...restProps}>{children}</Group>
+}
+
+Product.ImageWrapper = function ProductImageWrapper({ children, ...restProps }){
+    return <ImageWrapper {...restProps}>{children}</ImageWrapper>
 }
 
 Product.Inner = function ProductInner({ children, ...restProps }){

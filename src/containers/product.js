@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-import { Product, Header } from '../components'
+import { Product } from '../components'
 
 const smallImages = [
     'image-product-1-thumbnail',
@@ -10,17 +10,22 @@ const smallImages = [
 ]
 
 export function ProductContainer(){
+    const [selectImage, setSelectImage] = useState(1)
     return (
         <Product>
             <Product.Inner>
                 <Product.Group direction = 'column'>
-                <Product.LargeImage src={process.env.PUBLIC_URL + 'images/image-product-1.jpg'}/>
+                <Product.LargeImage src={process.env.PUBLIC_URL + `images/image-product-${selectImage}.jpg`}/>
                 <Product.Group direction ='row' width = '400px' >
                 {smallImages.map( (image, index) => (
+
                     <Product.SmallImage 
                     key = {`small-image-${index}`}
                     src={process.env.PUBLIC_URL + `images/${image}.jpg`}
-                    alt = {`thumbnail-image-${index}`}/>
+                    alt = {`thumbnail-image-${index}`}
+                    onClick = {() => setSelectImage(index + 1)}
+                    selected = {(index+1) === selectImage && true}/>
+
                 ))}
                 </Product.Group>
                 </Product.Group>

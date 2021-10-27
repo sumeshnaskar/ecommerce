@@ -2,6 +2,14 @@ import styled from "styled-components"
 
 export const Container = styled.section`
     @media(min-width: 700px){
+        width: 100%
+        margin: 0 auto;
+        
+        border: 2px solid;
+        display: flex;
+        justify-content: center;
+        height: 100vh;
+        align-items: center;
         display: none;
     }
 `
