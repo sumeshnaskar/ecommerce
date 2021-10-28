@@ -7,10 +7,16 @@ export const Container = styled.section`
         
         border: 2px solid;
         display: flex;
+        flex-direction: column;
         justify-content: center;
-        height: 100vh;
+        background: rgba(0,0,0,.8);
         align-items: center;
-        display: none;
+        position: absolute;
+        padding: 4em 0;
+        right: 0;
+        left: 0;
+        top: 0;
+        
     }
 `
 
@@ -23,10 +29,11 @@ export const ImageWrapper = styled.div`
     width: 100%;
     height: 50vh;
     @media(min-width: 700px){
-        max-width: 400px;
+        margin-top: .5em;
+        max-width: 500px;
         border-radius: 10px;
-        height: 400px
-
+        height: 500px;
+        width: 500px;
     }
 `
 
@@ -50,4 +57,15 @@ export const Arrow = styled.i`
     padding: 5px;
     transform: ${({transform})=>transform};
     margin:  ${({transform}) => transform === 'rotate(135deg)' ? '4px 0px 0px 5px' : '4px 5px 0px 0px'};
+`
+
+export const Image = styled.img`
+    display: none;
+    @media(min-width: 700px){
+        display: block;
+        margin-left: auto;
+        margin-right: 0;
+        filter:  brightness(0) invert(1) ;
+        cursor: pointer;
+    }
 `

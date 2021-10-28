@@ -4,7 +4,8 @@ import {
     Container, 
     ImageWrapper, 
     ArrowButton, 
-    Arrow
+    Arrow,
+    Image
 } from './styles/carousel'
 
 export default function Carousel({ children, ...restProps }){
@@ -21,4 +22,8 @@ Carousel.ArrowButton = function ImageArrowButton({ children, ...restProps }){
 
 Carousel.Arrow = function ImageArrow({...restProps}){
     return <Arrow {...restProps}/>
+}
+
+Carousel.Image = function ImageImage({...restProps}){
+    return <Image {...restProps}/>
 }
