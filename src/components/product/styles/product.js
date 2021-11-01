@@ -56,6 +56,11 @@ export const SmallImage = styled.div`
         background-image: url(${({src})=>src});
         background-color: ${({selected}) => selected && 'hsl(0, 0%, 70%)'};
         background-size: cover;
+
+        &:hover{
+            background-color: hsl(0, 0%, 70%);
+            border: 2px solid hsl(26, 100%, 55%);
+        }
         
     }
 `

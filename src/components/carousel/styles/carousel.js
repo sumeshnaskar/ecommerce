@@ -4,9 +4,8 @@ export const Container = styled.section`
     @media(min-width: 700px){
         width: 100%
         margin: 0 auto;
-        
         border: 2px solid;
-        display: flex;
+        display: ${({display})=>display ? 'flex' : 'none'};
         flex-direction: column;
         justify-content: center;
         background: rgba(0,0,0,.8);
@@ -37,19 +36,6 @@ export const ImageWrapper = styled.div`
     }
 `
 
-export const ArrowButton = styled.button`
-    background-color: hsl(0, 0%, 100%);
-    padding: 1.25em;
-    border-radius: 100px;
-    border: none;
-    margin: .5em;
-
-    @media(min-width: 700px){
-        margin: -2em;
-    }
-    
-`
- 
 export const Arrow = styled.i`
     border: solid black;
     border-width: 0 2px 2px 0;
@@ -57,7 +43,29 @@ export const Arrow = styled.i`
     padding: 5px;
     transform: ${({transform})=>transform};
     margin:  ${({transform}) => transform === 'rotate(135deg)' ? '4px 0px 0px 5px' : '4px 5px 0px 0px'};
+    cursor: pointer;
+
 `
+
+export const ArrowButton = styled.button`
+    background-color: hsl(0, 0%, 100%);
+    padding: 1.25em;
+    border-radius: 100px;
+    border: none;
+    margin: .5em;
+    cursor: pointer;
+    @media(min-width: 700px){
+        margin: -2em;
+    }
+    
+
+    &:hover > ${Arrow}{
+        border-color: hsl(26, 100%, 55%);
+    }
+    
+`
+ 
+
 
 export const Image = styled.img`
     display: none;
@@ -67,5 +75,6 @@ export const Image = styled.img`
         margin-right: 0;
         filter:  brightness(0) invert(1) ;
         cursor: pointer;
+
     }
 `

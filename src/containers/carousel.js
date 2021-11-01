@@ -9,22 +9,36 @@ const smallImages = [
     'image-product-4-thumbnail'
 ]
 
-export function CarouselContainer(){
+export function CarouselContainer({ display, setDisplay }){
     const [selectImage, setSelectImage] = useState(1)
+
+
+
     return (
-        <Carousel> 
+        <Carousel display = {display}> 
             <Carousel.ImageWrapper style = {{ height: 'auto'}}>
-                <Carousel.Image src={process.env.PUBLIC_URL + 'images/icon-close.svg'}/> 
+                <Carousel.Image 
+                    src={process.env.PUBLIC_URL + 'images/icon-close.svg'}
+                    onClick = { () => setDisplay(0)}
+                /> 
                 {/* background sneaker image*/}
             </Carousel.ImageWrapper>
                 <Carousel.ImageWrapper 
                     src={process.env.PUBLIC_URL + `images/image-product-${selectImage}.jpg`} 
                     alt="sneaker product image-1"
                 >     
-                    {/* left arrow */}
-                    <Carousel.ArrowButton><Carousel.Arrow transform = "rotate(135deg)"/></Carousel.ArrowButton>
-                    {/* right arrow */}
-                    <Carousel.ArrowButton><Carousel.Arrow transform = "rotate(-45deg)"/></Carousel.ArrowButton>
+                {/* left arrow */}
+                <Carousel.ArrowButton 
+                    onClick = {() => selectImage > 1 && setSelectImage(selectImage - 1)}
+                >
+                    <Carousel.Arrow transform = "rotate(135deg)"/>
+                </Carousel.ArrowButton>
+                {/* right arrow */}
+                <Carousel.ArrowButton 
+                    onClick = {() => selectImage < smallImages.length && setSelectImage(selectImage + 1)}
+                >
+                    <Carousel.Arrow transform = "rotate(-45deg)"/>
+                </Carousel.ArrowButton>
                 </Carousel.ImageWrapper>
                 <Product.Group direction ='row' width = '400px'>
                     {smallImages.map( (image, index) => (

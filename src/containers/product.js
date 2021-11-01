@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 
 import { Product } from '../components'
+import { CarouselContainer } from './carousel'
 
 const smallImages = [
     'image-product-1-thumbnail',
@@ -11,11 +12,16 @@ const smallImages = [
 
 export function ProductContainer(){
     const [selectImage, setSelectImage] = useState(1)
+    const [display, setDisplay] = useState(0)
     return (
         <Product>
+            <CarouselContainer display = {display} setDisplay = {setDisplay}/>
             <Product.Inner>
                 <Product.Group direction = 'column'>
-                <Product.LargeImage src={process.env.PUBLIC_URL + `images/image-product-${selectImage}.jpg`}/>
+                <Product.LargeImage 
+                    src={process.env.PUBLIC_URL + `images/image-product-${selectImage}.jpg`}
+                    onClick = {() => setDisplay(1)}
+                />
                 <Product.Group direction ='row' width = '400px' >
                 {smallImages.map( (image, index) => (
 
@@ -60,11 +66,11 @@ export function ProductContainer(){
                     </Product.Quantity>
                     <Product.CartButton>
                         {/* cart image  */}
-                        <img
+                        {/* <img
                             src = {process.env.PUBLIC_URL + 'images/icon-cart.svg'} 
                             alt="cart icon"
                             style = {{width: '25px', height: '25px', filter: 'brightness(0) invert(1)'}}
-                            />
+                            /> */}
                         <Product.SmallText style={{fontWeight: '700', color: '#fff', marginLeft: '1em'}}>Add to cart</Product.SmallText>
                     </Product.CartButton>
                 </Product.Inner>
