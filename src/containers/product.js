@@ -13,10 +13,11 @@ const smallImages = [
 export function ProductContainer(){
     const [selectImage, setSelectImage] = useState(1)
     const [display, setDisplay] = useState(0)
+    const [count, setCount] = useState(0)
     return (
         <Product>
             <CarouselContainer display = {display} setDisplay = {setDisplay}/>
-            <Product.Inner>
+            <Product.Inner >
                 <Product.Group direction = 'column'>
                 <Product.LargeImage 
                     src={process.env.PUBLIC_URL + `images/image-product-${selectImage}.jpg`}
@@ -60,9 +61,9 @@ export function ProductContainer(){
                 </Product.Group> 
                 <Product.Inner direction="flex">
                     <Product.Quantity>
-                        <Product.QuantityButton>-</Product.QuantityButton>
-                        <Product.SmallText style={{fontWeight: '700'}}>0</Product.SmallText>
-                        <Product.QuantityButton>+</Product.QuantityButton>
+                        <Product.QuantityButton onClick = {()=> count > 0 && setCount(count - 1)}>-</Product.QuantityButton>
+                        <Product.SmallText style={{fontWeight: '700'}}>{count}</Product.SmallText>
+                        <Product.QuantityButton onClick = {()=> setCount(count + 1)}>+</Product.QuantityButton>
                     </Product.Quantity>
                     <Product.CartButton>
                         {/* cart image  */}

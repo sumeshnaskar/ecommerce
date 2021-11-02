@@ -1,28 +1,44 @@
 import styled from "styled-components"
 
-export const Container = styled.section`
-    width: 90%;
-    margin: 0 auto;
-
-    @media(min-width: 700px){
-       display: flex;
-       justify-content: space-between;
-       margin: 4em;
-    }
-`
 
 export const Inner = styled.div`
+
+
     @media(min-width: 700px){   
         width: ${({direction})=> direction ? '100%' : '50%'};
         display: ${({direction})=> direction};
-    }
-
-    
+    }  
 `
+
+export const Container = styled.section`
+    width: 100%;
+    margin: 0 auto;
+
+    >:nth-child(3){
+        width: 90%;
+        margin: 0 auto;
+    }
+    @media(min-width: 700px){
+        width: 90%;
+        display: flex;
+        justify-content: space-between;
+        margin: 4em;
+
+        > ${Inner}{
+            min-width: 450px;
+        }
+        >:nth-child(3){
+            width: 50%;
+            margin: 0 auto;
+            
+        }
+    }
+`
+
+
 
 export const LargeImage = styled.img`
     display: none;
-
 
     @media(min-width: 700px){
         display: block;
@@ -34,14 +50,10 @@ export const LargeImage = styled.img`
     }
 `
 
-export const ImageWrapper = styled.div`
-
-`
+export const ImageWrapper = styled.div``
 
 export const SmallImage = styled.div`
-
     display: none;
-
 
     @media(min-width: 700px){
         display: block;
@@ -60,8 +72,7 @@ export const SmallImage = styled.div`
         &:hover{
             background-color: hsl(0, 0%, 70%);
             border: 2px solid hsl(26, 100%, 55%);
-        }
-        
+        }       
     }
 `
 
@@ -83,7 +94,6 @@ export const SmallText =styled.p`
     padding: ${({discount}) => discount && '.25em'};
     border-radius: ${({discount}) => discount && '5px'};
     text-decoration: ${({linethrough}) => linethrough && 'line-through'};
-
 `
 
 export const Group = styled.div`  
@@ -120,8 +130,7 @@ export const QuantityButton = styled.button`
     background: transparent;
     color: hsl(26, 100%, 55%);
     font-weight: 700;
-    cursor: pointer;
-    
+    cursor: pointer;   
 `
 
 export const CartButton = styled(Quantity)`
@@ -135,7 +144,6 @@ export const CartButton = styled(Quantity)`
     
     @media(min-width: 700px){
         margin: 0;
-        width: 100%;
-        
+        width: 100%;     
     }
 `
