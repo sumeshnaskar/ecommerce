@@ -1,12 +1,13 @@
 import React, {useState} from 'react'
-import { Header } from '../components'
+import { Header, Product } from '../components'
 
 const styles  = { marginRight: ".5em"}
 
 //header container
-export function HeaderContainer(){
+export function HeaderContainer({ count, setCount }){
     const [ displayMenu, setDisplayMenu ] = useState(false)
     return (
+        <>
         <Header>
             <Header.Group>
                 {/* Hamburger menu for small screen */}
@@ -45,5 +46,23 @@ export function HeaderContainer(){
                     />
             </Header.Group>
         </Header>
+        <Header.Cart>
+            <Header.Item>Cart</Header.Item>
+            {count === 0 && <Header.Item>Your cart is empty.</Header.Item>}
+            {count > 0 && <><Header.Group cart = 'true' direction = 'row'>
+                <Header.Image src={process.env.PUBLIC_URL + '/images/image-product-1-thumbnail.jpg'}/>
+                <Header.Group direction = 'column'>
+                    <Header.Text>Fall Limited Edition Sneakers</Header.Text>
+                    <Header.Text>$125.00 x {count} = <strong>${count * 125}.00</strong></Header.Text>
+                </Header.Group>
+                <Header.Image 
+                    src = {process.env.PUBLIC_URL + 'images/icon-delete.svg'} 
+                    alt='delete icon'
+                    onClick = {() => setCount(0)}
+                />
+            </Header.Group>
+            <Header.Checkout>Checkout</Header.Checkout></>}
+        </Header.Cart>
+        </>
     )
 }

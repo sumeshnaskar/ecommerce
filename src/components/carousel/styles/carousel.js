@@ -15,7 +15,7 @@ export const Container = styled.section`
         right: 0;
         left: 0;
         top: 0;
-        
+        z-index: 999;
     }
 `
 

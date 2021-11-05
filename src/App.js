@@ -4,7 +4,6 @@ import { ProductContainer } from './containers/product'
 
 export default function App() {
   return (<>
-    <HeaderContainer/>
     <ProductContainer/></>
   )
 }

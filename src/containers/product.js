@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 
-import { Product } from '../components'
+import { Header, Product } from '../components'
 import { CarouselContainer } from './carousel'
+import { HeaderContainer } from './header'
 
 const smallImages = [
     'image-product-1-thumbnail',
@@ -15,6 +16,8 @@ export function ProductContainer(){
     const [display, setDisplay] = useState(0)
     const [count, setCount] = useState(0)
     return (
+        <>
+        <HeaderContainer count={count} setCount={setCount}/>
         <Product>
             <CarouselContainer display = {display} setDisplay = {setDisplay}/>
             <Product.Inner >
@@ -67,16 +70,17 @@ export function ProductContainer(){
                     </Product.Quantity>
                     <Product.CartButton>
                         {/* cart image  */}
-                        {/* <img
+                        <Header.Image 
                             src = {process.env.PUBLIC_URL + 'images/icon-cart.svg'} 
                             alt="cart icon"
                             style = {{width: '25px', height: '25px', filter: 'brightness(0) invert(1)'}}
-                            /> */}
+                        />
                         <Product.SmallText style={{fontWeight: '700', color: '#fff', marginLeft: '1em'}}>Add to cart</Product.SmallText>
                     </Product.CartButton>
                 </Product.Inner>
             </Product.Inner>
         </Product>
+        </>
     )
 }
 

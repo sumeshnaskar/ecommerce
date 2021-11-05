@@ -24,8 +24,11 @@ export const Image = styled.img`
 export const Group = styled.div`
     display: inline-block;
     display: flex;
-    padding-bottom: 1em;
+    padding-bottom: ${({direction}) => direction ? '0' : '1em'};
+    flex-direction: ${({direction}) => direction ? direction  : 'row'};
     align-items: center;
+    justify-content: center;
+    margin-top: ${({cart}) => cart && '1.5em'};
 
     &:last-of-type > ${Image}:nth-child(2){
         width: 25px;
@@ -39,7 +42,7 @@ export const Group = styled.div`
 
     @media(min-width: 700px){
         &:first-of-type > ${Image}:nth-child(1){
-            display: none;
+            display: ${({cart}) => cart ? 'block' : 'none'};
         }
 
         &:last-of-type > ${Image}:nth-child(2){
@@ -116,4 +119,92 @@ export const Item = styled.li`
     }
     
 
+`
+
+export const Cart = styled.div`
+    position: absolute;
+    background: #fff;
+    top: 4.5em;
+    left: 0;
+    right: 0;
+    width: 96%;
+    height: 240px;
+    border-radius: 10px;
+    margin: 0 auto;
+    z-index: 999;
+    box-shadow: 0px 8px 20px hsl(0,0%,75%);
+    display: flex;
+    flex-direction: column;
+    user-select: none;
+
+    > ${Item}: first-of-type{
+        font-weight: 700;
+        margin: 0;
+        padding: 1em;
+        font-size: 1.25rem;
+        color: hsl(0,0%,0%);
+        border-bottom: 1px solid hsl(0,0%,75%);
+        cursor: auto;
+        
+    }
+
+    > ${Item}: nth-child(2){
+        margin: auto;
+        vartical-align: center;
+        border-bottom: none;
+        color: hsl(219, 9%, 45%);
+
+        &:hover{
+            cursor: auto;
+        }
+    } 
+
+    ${Image}:first-of-type{
+        width: 50px;
+        height: 50px;
+        border-radius: 5px;
+        border: none;
+        cursor: auto;
+
+        @media(min-width: 700px){
+            display: block;
+        }
+    }
+
+
+    @media(min-width: 700px){
+        width: 320px;
+        right: 2em;
+        left: auto;
+        margin: 0;
+    }
+`
+
+export const Text = styled.p`
+    margin: 0;
+    align-self: flex-start;
+    width: 200px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    padding-bottom: 0;
+    margin-right: 2.125em;
+    margin-left: .5em;
+
+    @media(min-width: 700px){
+        margin-right: 1em;
+    }
+`
+
+export const Checkout = styled.button`
+    width: 90%;
+    margin: 0 auto;
+    border-radius: 5px;
+    border: none;
+    background-color: hsl(26, 100%, 55%);
+    padding: 1em;
+    font-weight: 700;
+    color: hsl(0,0%,100%);
+    font-size: 1rem;
+    margin-top: 1em;
 `
