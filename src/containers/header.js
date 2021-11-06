@@ -14,19 +14,19 @@ export function HeaderContainer({ addtoCart, setAddtoCart }){
             <Header.Group>
                 {/* Hamburger menu for small screen */}
                 <Header.Image 
-                    src = {process.env.PUBLIC_URL + 'images/icon-menu.svg'} 
+                    src = {process.env.PUBLIC_URL + '/images/icon-menu.svg'} 
                     alt="open menu"
                     style ={styles}
                     onClick = {() => setDisplayMenu(!displayMenu)}/>
                 {/* sneakers logo */}
                 <Header.Image 
-                    src = {process.env.PUBLIC_URL + 'images/logo.svg'} 
+                    src = {process.env.PUBLIC_URL + '/images/logo.svg'} 
                     alt="sneakers logo"/>
             </Header.Group>  
             {/* menu items */}
             <Header.Menu display = { displayMenu ? 'block' : 'none'}>
                 <Header.Image 
-                    src = {process.env.PUBLIC_URL + 'images/icon-close.svg'} 
+                    src = {process.env.PUBLIC_URL + '/images/icon-close.svg'} 
                     alt="close menu"
                     onClick = {() => setDisplayMenu(!displayMenu)}/>
                 <Header.Item href='#'>Collections</Header.Item>
@@ -38,14 +38,14 @@ export function HeaderContainer({ addtoCart, setAddtoCart }){
             <Header.Group>
                 {/* cart image  */}
                 <Header.Image 
-                    src = {process.env.PUBLIC_URL + 'images/icon-cart.svg'} 
+                    src = {process.env.PUBLIC_URL + '/images/icon-cart.svg'} 
                     alt="cart icon"
                     style = {styles}
                     onClick = {() => setDisplayCart(!displayCart)}
                 />
                 {/* profile image */}
                 <Header.Image 
-                    src = {process.env.PUBLIC_URL + 'images/image-avatar.png'} 
+                    src = {process.env.PUBLIC_URL + '/images/image-avatar.png'} 
                     alt='profile image'
                     onClick = {() => setDisplayCart(!displayCart)}
                 />
@@ -63,7 +63,7 @@ export function HeaderContainer({ addtoCart, setAddtoCart }){
                     <Header.Text>$125.00 x {addtoCart} = <strong>${addtoCart * 125}.00</strong></Header.Text>
                 </Header.Group>
                 <Header.Image 
-                    src = {process.env.PUBLIC_URL + 'images/icon-delete.svg'} 
+                    src = {process.env.PUBLIC_URL + '/images/icon-delete.svg'} 
                     alt='delete icon'
                     onClick = {() => setAddtoCart(0)}
                 />
