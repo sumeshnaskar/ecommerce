@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Image, Group, Menu, Item, Cart, Text, Checkout } from './styles/header'
+import { Container, Image, Group, Menu, Item, Cart, Text, Checkout, Bubble } from './styles/header'
 
 
 // returns div
@@ -36,4 +36,8 @@ Header.Text = function HeaderText({ children, ...restProps }){
 
 Header.Checkout = function HeaderCheckout({ children, ...restProps }){
     return <Checkout {...restProps}>{children}</Checkout>
+}
+
+Header.Bubble = function HeaderBubble({ children, ...restProps }){
+    return <Bubble {...restProps}>{children}</Bubble>
 }
