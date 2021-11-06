@@ -22,6 +22,7 @@ export const Image = styled.img`
 `
 
 export const Group = styled.div`
+    position: relative;
     display: inline-block;
     display: flex;
     padding-bottom: ${({direction}) => direction ? '0' : '1em'};
@@ -64,6 +65,7 @@ export const Menu = styled.ul`
     width: 70%;
     height: 100vh;
     background-color: hsl(0, 0%, 100%);
+    z-index: 999;
     animation: ${slide} .3s forwards;
     display: ${({display})=>display};
 
@@ -90,6 +92,7 @@ export const Item = styled.li`
     margin: 1em 0;
     cursor: pointer;
     color: hsl(219, 9%, 45%);
+    
     &:first-of-type{
         margin-top: 2.5em;
     }
@@ -107,6 +110,7 @@ export const Item = styled.li`
         font-size: 1rem;
         margin-top: 1em;
         padding-bottom: 1.75em;
+        border-bottom: 3px solid hsl(0, 0%, 100%);
         &:first-of-type{
             margin-top: 1em;
             margin-left: 3em;
@@ -207,4 +211,21 @@ export const Checkout = styled.button`
     color: hsl(0,0%,100%);
     font-size: 1rem;
     margin-top: 1em;
+`
+
+export const Bubble = styled.p`
+    background-color: hsl(26, 100%, 55%);
+    color: #fff;
+    padding: 0.25em .75em;
+    font-size: .5rem;
+    border-radius: 25px;
+    position: absolute;
+    right: 3.5em;
+    top: -1.5em;
+
+    @media(min-width: 700px){
+        right: 6.5em;
+        top: 0;
+    }
+    
 `

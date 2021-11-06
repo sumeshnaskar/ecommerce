@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 
 import { Header, Product } from '../components'
 import { CarouselContainer } from './carousel'
-import { HeaderContainer } from './header'
 
 const smallImages = [
     'image-product-1-thumbnail',
@@ -11,33 +10,37 @@ const smallImages = [
     'image-product-4-thumbnail'
 ]
 
-export function ProductContainer(){
+export function ProductContainer({ setAddtoCart }){
     const [selectImage, setSelectImage] = useState(1)
     const [display, setDisplay] = useState(0)
     const [count, setCount] = useState(0)
+
     return (
-        <>
-        <HeaderContainer count={count} setCount={setCount}/>
         <Product>
-            <CarouselContainer display = {display} setDisplay = {setDisplay}/>
+            <CarouselContainer 
+                display = {display} 
+                setDisplay = {setDisplay} 
+                selectImage = {selectImage} 
+                setSelectImage = {setSelectImage}
+            />
             <Product.Inner >
                 <Product.Group direction = 'column'>
-                <Product.LargeImage 
-                    src={process.env.PUBLIC_URL + `images/image-product-${selectImage}.jpg`}
-                    onClick = {() => setDisplay(1)}
-                />
-                <Product.Group direction ='row' width = '400px' >
-                {smallImages.map( (image, index) => (
+                    <Product.LargeImage 
+                        src={process.env.PUBLIC_URL + `images/image-product-${selectImage}.jpg`}
+                        onClick = {() => setDisplay(1)}
+                    />
+                    <Product.Group direction ='row' width = '400px' >
+                    {smallImages.map( (image, index) => (
 
-                    <Product.SmallImage 
-                    key = {`small-image-${index}`}
-                    src={process.env.PUBLIC_URL + `images/${image}.jpg`}
-                    alt = {`thumbnail-image-${index}`}
-                    onClick = {() => setSelectImage(index + 1)}
-                    selected = {(index+1) === selectImage && true}/>
+                        <Product.SmallImage 
+                        key = {`small-image-${index}`}
+                        src={process.env.PUBLIC_URL + `images/${image}.jpg`}
+                        alt = {`thumbnail-image-${index}`}
+                        onClick = {() => setSelectImage(index + 1)}
+                        selected = {(index+1) === selectImage && true}/>
 
-                ))}
-                </Product.Group>
+                    ))}
+                    </Product.Group>
                 </Product.Group>
                 
             </Product.Inner>
@@ -68,7 +71,7 @@ export function ProductContainer(){
                         <Product.SmallText style={{fontWeight: '700'}}>{count}</Product.SmallText>
                         <Product.QuantityButton onClick = {()=> setCount(count + 1)}>+</Product.QuantityButton>
                     </Product.Quantity>
-                    <Product.CartButton>
+                    <Product.CartButton onClick = {() => setAddtoCart(count)}>
                         {/* cart image  */}
                         <Header.Image 
                             src = {process.env.PUBLIC_URL + 'images/icon-cart.svg'} 
@@ -80,7 +83,6 @@ export function ProductContainer(){
                 </Product.Inner>
             </Product.Inner>
         </Product>
-        </>
     )
 }
 

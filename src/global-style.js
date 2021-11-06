@@ -8,6 +8,7 @@ export const GlobalStyle = createGlobalStyle`
     body{
         margin: 0;
         font-family: 'Kumbh Sans', sans-serif;
+        user-select: none;
     }
 `
 
