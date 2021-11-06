@@ -26,7 +26,7 @@ export function ProductContainer({ setAddtoCart }){
             <Product.Inner >
                 <Product.Group direction = 'column'>
                     <Product.LargeImage 
-                        src={process.env.PUBLIC_URL + `images/image-product-${selectImage}.jpg`}
+                        src={process.env.PUBLIC_URL + `/images/image-product-${selectImage}.jpg`}
                         onClick = {() => setDisplay(1)}
                     />
                     <Product.Group direction ='row' width = '400px' >
@@ -34,7 +34,7 @@ export function ProductContainer({ setAddtoCart }){
 
                         <Product.SmallImage 
                         key = {`small-image-${index}`}
-                        src={process.env.PUBLIC_URL + `images/${image}.jpg`}
+                        src={process.env.PUBLIC_URL + `/images/${image}.jpg`}
                         alt = {`thumbnail-image-${index}`}
                         onClick = {() => setSelectImage(index + 1)}
                         selected = {(index+1) === selectImage && true}/>
@@ -74,7 +74,7 @@ export function ProductContainer({ setAddtoCart }){
                     <Product.CartButton onClick = {() => setAddtoCart(count)}>
                         {/* cart image  */}
                         <Header.Image 
-                            src = {process.env.PUBLIC_URL + 'images/icon-cart.svg'} 
+                            src = {process.env.PUBLIC_URL + '/images/icon-cart.svg'} 
                             alt="cart icon"
                             style = {{width: '25px', height: '25px', filter: 'brightness(0) invert(1)'}}
                         />

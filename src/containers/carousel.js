@@ -15,13 +15,13 @@ export function CarouselContainer({ display, setDisplay, selectImage, setSelectI
         <Carousel display = {display}> 
             <Carousel.ImageWrapper style = {{ height: 'auto'}}>
                 <Carousel.Image 
-                    src={process.env.PUBLIC_URL + 'images/icon-close.svg'}
+                    src={process.env.PUBLIC_URL + '/images/icon-close.svg'}
                     onClick = { () => setDisplay(0)}
                 /> 
                 {/* background sneaker image*/}
             </Carousel.ImageWrapper>
             <Carousel.ImageWrapper 
-                src={process.env.PUBLIC_URL + `images/image-product-${selectImage}.jpg`} 
+                src={process.env.PUBLIC_URL + `/images/image-product-${selectImage}.jpg`} 
                 alt= {`sneaker product image-${selectImage}`}
             >     
             {/* left arrow */}
@@ -42,7 +42,7 @@ export function CarouselContainer({ display, setDisplay, selectImage, setSelectI
 
                     <Product.SmallImage 
                     key = {`small-image-${index}`}
-                    src={process.env.PUBLIC_URL + `images/${image}.jpg`}
+                    src={process.env.PUBLIC_URL + `/images/${image}.jpg`}
                     alt = {`thumbnail-image-${index}`}
                     onClick = {() => setSelectImage(index + 1)}
                     selected = {(index+1) === selectImage && true}/>
